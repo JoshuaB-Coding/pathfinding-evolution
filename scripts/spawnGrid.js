@@ -1,25 +1,31 @@
-import { Node } from "./Node";
+// import { Node } from "./Node";
+// import { GRID_SIZE } from "./constants.mjs";
 
 var center = document.createElement('center');
 
 var grid = document.createElement('table');
 grid.setAttribute('class', 'grid');
 
-const size = 5;
+const GRID_SIZE = 20;
+const wallProbability = 0.25;
 
-for (var i = 0; i < size; i++) {
+for (var i = 0; i < GRID_SIZE; i++) {
     var tr = document.createElement('tr');
-    for (var j = 0; j < size; j++) {
+    for (var j = 0; j < GRID_SIZE; j++) {
         var td = document.createElement('td');
 
-        if ((i + j) % 2 == 0) {
+        const isWall = Math.random() > (1 - wallProbability) ? 1 : 0;
+
+        if (isWall) {
             td.setAttribute('class', 'node wallnode');
-            tr.appendChild(td);
+            td.setAttribute('id', `${i}-${j}-wall`);
         }
         else {
             td.setAttribute('class', 'node normalnode');
-            tr.appendChild(td);
+            td.setAttribute('id', `${i}-${j}`);
         }
+
+        tr.appendChild(td);
     }
     grid.appendChild(tr);
 }
