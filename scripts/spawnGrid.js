@@ -1,12 +1,9 @@
-// import { Node } from "./Node";
-// import { GRID_SIZE } from "./constants.mjs";
-
 var center = document.createElement('center');
 
 var grid = document.createElement('table');
 grid.setAttribute('class', 'grid');
+grid.setAttribute('id', 'grid');
 
-const GRID_SIZE = 20;
 const wallProbability = 0.25;
 
 for (var i = 0; i < GRID_SIZE; i++) {
