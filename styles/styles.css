@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+}
+
+.grid {
+    background-color: grey;
+    aspect-ratio: 1;
+    width: 500px;
+    padding: 10px;
+}
+
+.grid:hover {
+    opacity: 0.8;
+}
+
+.node {
+    width: 10px;
+    aspect-ratio: 1;
+    padding: 5px;
+}
+
+.normalnode {
+    background-color: whitesmoke;
+}
+
+.wallnode {
+    background-color: black;
+}
+
+.foodnode {
+    background-color: red;
+}
