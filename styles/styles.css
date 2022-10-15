@@ -19,7 +19,7 @@ body {
     padding: 20px;
 }
 
-.normalnode {
+.defaultnode {
     background-color: whitesmoke;
 }
 
@@ -33,4 +33,13 @@ body {
 
 .playernode {
     background-color: blue;
+}
+
+.btn {
+    background-color: green;
+    padding: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
 }

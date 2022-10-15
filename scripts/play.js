@@ -39,12 +39,12 @@ if (foodNode) {
     foodNode.setAttribute('id', `${position[0]}-${position[1]}-food`);
 }
 
-grid.addEventListener("mouseover", movePlayer);
+// grid.addEventListener("mouseover", movePlayer);
 
 function movePlayer() {
     const oldId = `${position[0]}-${position[1]}-player`;
     var oldNode = document.getElementById(oldId);
-    oldNode.setAttribute('class', 'node normalnode');
+    oldNode.setAttribute('class', 'node defaultnode');
     oldNode.setAttribute('id', `${position[0]}-${position[1]}`);
     // needs to be fixed to avoid jumpy moves
     var hasMoved = false;
@@ -77,3 +77,14 @@ function movePlayer() {
         }
     }
 };
+
+const coefficients = [0.25, 0.25, 0.25, 0.25];
+
+function bestMove() {
+
+    return 'UP';
+};
+
+const button = document.getElementById("playButton");
+
+button.addEventListener("click", movePlayer);
