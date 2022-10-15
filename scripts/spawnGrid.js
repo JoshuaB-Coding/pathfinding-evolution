@@ -4,8 +4,8 @@ var grid = document.createElement('table');
 grid.setAttribute('class', 'grid');
 grid.setAttribute('id', 'grid');
 
-const wallProbability = 0.25;
-var nodes = [];
+const wallProbability = 0; // currently disabled
+var nodes = new Nodes();
 
 for (var i = 0; i < GRID_SIZE; i++) {
     var tr = document.createElement('tr');
@@ -15,14 +15,10 @@ for (var i = 0; i < GRID_SIZE; i++) {
         const isWall = Math.random() > (1 - wallProbability) ? 1 : 0;
 
         if (isWall) {
-            nodes.concat(new Node(td, 'WALL'));
-            // td.setAttribute('class', 'node wallnode');
-            // td.setAttribute('id', `${i}-${j}-wall`);
+            nodes.addNode(new Node(td, 'WALL'));
         }
         else {
-            nodes.concat(new Node(td, 'DEFAULT'));
-            // td.setAttribute('class', 'node defaultnode');
-            // td.setAttribute('id', `${i}-${j}`);
+            nodes.addNode(new Node(td, 'DEFAULT'));
         }
 
         tr.appendChild(td);
@@ -32,3 +28,6 @@ for (var i = 0; i < GRID_SIZE; i++) {
 
 center.appendChild(grid);
 document.body.appendChild(center);
+
+var player = new Player(nodes, GRID_SIZE * GRID_SIZE / 2 + GRID_SIZE / 2);
+nodes.spawnFood();
